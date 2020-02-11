@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 
-class PageList(ListView):
+class PageListView(ListView):
     """
     CHALLENGES:
       1. On GET, display a homepage that shows all Pages in your wiki.
@@ -15,7 +15,13 @@ class PageList(ListView):
 
     def get(self, request):
         """ Returns a list of wiki pages. """
-        pass
+        all_pages = self.get_queryset().all()
+        
+        context = {
+          'all_pages': all_pages
+        }
+
+        return render(request, 'page-list.html', context)
 
 
 class PageDetailView(DetailView):
