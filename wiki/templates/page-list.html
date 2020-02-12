@@ -1,0 +1,9 @@
+<h1>All Wiki Pages</h1>
+
+<ul>
+    {% for page in all_pages%}
+        <a href="{{ page.slug }}/" <li>{{page}}</li></a>
+    {% endfor %}
+</ul>
+
+<!-- {{all_pages}} -->
